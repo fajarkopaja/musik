@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    let audioA = new Audio();
+    audioA.src = "audio/do.mp3";
+
+    let audioB = new Audio();
+    audioB.src = "audio/re.mp3";
+
+    let audioC = new Audio();
+    audioC.src = "audio/mi.mp3";
+
+    let audioD = new Audio();
+    audioD.src = "audio/fa.mp3";
+
+    let audioE = new Audio();
+    audioE.src = "audio/so.mp3";
+    
+    let audioF = new Audio();
+    audioF.src = "audio/la.mp3";
+
+    let audioG = new Audio();
+    audioG.src = "audio/si.mp3";
+
+    let audioC2 = new Audio();
+    audioC2.src = "audio/do2.mp3";
+    
+  </script>
+</head>
+<body>
+    <div id="piano">
+      <div onclick="play('C')">DO</div>
+      <div onclick="play('D')">RE</div>
+      <div onclick="play('E')">MI</div>
+      <div onclick="play('F')">FA</div>
+      <div onclick="play('G')">SO</div>
+      <div onclick="play('A')">LA</div>
+      <div onclick="play('B')">SI</div>
+      <div onclick="play('C2')">DO#</div>
+
+    </div>
+  <script>
+
+    let piano = document.getElementById("piano");
+    piano.className = "flex bg-gray-500 h-screen justify-center items-center";
+    
+    let piano_children = piano.children;
+
+    for(let i = 0; 1 < piano_children.length; i++)
+    { 
+      piano_children[i].className ="p-3 mx-2 bg-red-500 hover:bg-red-700 rounded-lg text-white w-16 h-16 flex justify-center items-center cursor-pointer";
+    }
+
+    function play(notes){
+      switch(notes){
+        case 'B':
+          audioB.load();     
+          audioB.play();
+          break;
+        case 'C':
+          audioC.load();
+          audioC.play();
+          break;
+        case 'D':
+          audioD.load();
+          audioD.play();
+          break;
+        case 'E': 
+          audioE.load();
+          audioE.play();
+          break;
+        case 'F': 
+          audioF.load();
+          audioF.play();
+          break;
+        case 'G': 
+          audioG.load();
+          audioG.play();
+          break;
+        case 'A': 
+          audioA.load();
+          audioA.play();
+          break;
+        case 'C2': 
+          audioC2.load();
+          audioC2.play();
+          break;
+      }
+      return;
+    }
+    
+    document.addEventListener("keypress", function(){
+      switch(event.key){
+        case "s":
+          play("B");
+          break;
+        case "d":
+          play("C");
+          break;
+        case "f":
+          play("D");
+          break;
+        case "g":
+          play("E");
+          break;
+        case "h":
+          play("F");
+          break;
+        case "j":
+          play("G");
+          break;
+        case "k":
+          play("A");
+          break;
+        case "l":
+          play("C2");
+          break;
+      }
+    })
+
+  </script>
+</body>
+</html>

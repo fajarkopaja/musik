@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS piano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Import Assets
+        let audioDo = new Audio();
+        audioDo .src = "audio/do.mp3";
+
+        let audioRe = new Audio();
+        audioRe .src = "audio/re.mp3";
+
+        let audioMi = new Audio();
+        audioMi .src = "audio/mi.mp3";
+
+        let audioFa = new Audio();
+        audioFa .src = "audio/fa.mp3";
+
+        let audioSo = new Audio();
+        audioSo .src = "audio/so.mp3";
+
+        let audioLa = new Audio();
+        audioLa .src = "audio/la.mp3";
+
+        let audioSi = new Audio();
+        audioSi .src = "audio/si.mp3";
+
+        let audio2 = new Audio();
+        audio2 .src = "audio/do2.mp3";
+
+    </script>
+  </head>
+<body>
+    <div>
+    <div id="piano">
+        <div onclick="play('Do')">Do</div>
+        <div onclick="play('Re')">Re</div>
+        <div onclick="play('Mi')">Mi</div>
+        <div onclick="play('Fa')">Fa</div>
+        <div onclick="play('Sol')">Sol</div>
+        <div onclick="play('La')">La</div>
+        <div onclick="play('Si')">Si</div>
+        <div onclick="play('Do2')">Do2</div>
+    </div>
+
+    <Script>
+        let piano = document.getElementById("piano");
+        piano.className = "flex bg-gray-700 h-screen justify-center items-center";
+
+        let piano_children = piano.children;
+
+        for(let i = 0 ; i < piano_children.length; i++){
+            piano_children[i].className = "p-3  bg-red-500 hover:bg-red-700 rounded-lg text-white w-16 h-16 flex justify-center items-center cursor-pointer";
+        }
+
+        function play(chord){
+            switch(chord){
+                case 'e':
+                    audioDo.load();
+                    audioDo.pause();
+                    audioDo.currentTime = 1;
+                    audioDo.play();
+                    break;
+                case 'Re':
+                    audioRe.load();
+                    audioRe.pause();
+                    audioRe.currentTime = 1;
+                    audioRe.play();
+                    break;
+                case 'Mi':
+                    audioMi.load();
+                    audioMi.pause();
+                    audioMi.currentTime = 1;
+                    audioMi.play();
+                    break;
+                case 'Fa':
+                    audioFa.load();
+                    audioFa.pause();
+                    audioFa.currentTime = 1;
+                    audioFa.play();
+                    break;
+                case 'Sol':
+                    audioSo.load();
+                    audioSo.pause();
+                    audioSo.currentTime = 1;
+                    audioSo.play();
+                    break;
+                case 'La':
+                    audioLa.load();
+                    audioLa.pause();
+                    audioLa.currentTime = 1;
+                    audioLa.play();
+                    break;
+                case 'Si':
+                    audioSi.load();
+                    audioSi.pause();
+                    audioSi.currentTime = 1;
+                    audioSi.play();
+                    break;
+                case 'Do2':
+                    audioDo2.load();
+                    audioDo2.pause();
+                    audioDo2.currentTime = 1;
+                    audioDo2.play();
+                    break;
+
+            }
+        }
+
+        document.addEventListener("keypress", function(){
+            switch(event.key){
+                case "a":
+                    play("e");
+                    break;
+                case "s":
+                    play("Re");
+                    break;
+                case "d":
+                    play("Mi");
+                    break;
+                case "f":
+                    play("Fa");
+                    break;
+                case "g":
+                    play("Sol");
+                    break;
+                case "h":
+                    play("La");
+                    break;
+                case "j":
+                    play("Si");
+                    break;
+                case "k":
+                    play("Do2");
+                    break;
+            }
+        })
+    </Script>
+    </div>
+</body>
+</html>
